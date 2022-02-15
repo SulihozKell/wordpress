@@ -1,0 +1,38 @@
+{
+    "name": "dik/wordpress",
+    "require": {
+        "johnpbloch/wordpress": "^5.9",
+        "wpackagist-plugin/wordpress-seo": "^18.1",
+        "wpackagist-theme/astra": "^3.7"
+    },
+
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "wordpress/wp-content/mu-plugins/{$name}/": [
+                "wpackagist-plugin/akismet"
+            ],
+            "wordpress/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wordpress/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        }
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Dik\\Wordpress\\": "src/"
+        }
+    }
+}
